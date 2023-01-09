@@ -20,8 +20,8 @@ func (r *ginController) getAllTodoHandler() gin.HandlerFunc {
 	inport := gogen.GetInport[InportRequest, InportResponse](r.GetUsecase(InportRequest{}))
 
 	type request struct {
-		Page int64 `form:"page,omitempty,default=0"`
-		Size int64 `form:"size,omitempty,default=0"`
+		Page int `form:"page,omitempty,default=0"`
+		Size int `form:"size,omitempty,default=0"`
 	}
 
 	type response struct {

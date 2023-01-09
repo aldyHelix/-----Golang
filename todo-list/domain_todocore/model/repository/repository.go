@@ -11,7 +11,7 @@ type SaveTodoRepo interface {
 }
 
 type FindAllTodoRepo interface {
-	FindAllTodo(ctx context.Context, page, size int64) ([]*entity.Todo, int64, error)
+	FindAllTodo(ctx context.Context, page, size int) ([]*entity.Todo, int64, error)
 }
 
 type FindOneTodoByIDRepo interface {
