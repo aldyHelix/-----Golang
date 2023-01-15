@@ -4,6 +4,8 @@ import (
 	"fmt"
 	pb "go-proto/pb"
 	"log"
+
+	"google.golang.org/protobuf/proto"
 )
 
 func main() {
@@ -38,4 +40,14 @@ func main() {
 	}
 
 	fmt.Println(data)
+
+	testProducts := &pb.Products{}
+	if err = proto.Unmarshal(data, testProducts); err != nil {
+		log.Fatal("Unmarshal error", err)
+	}
+
+	for _, product := range testProducts.GetData() {
+		fmt.Println(product.GetName())
+		fmt.Println(product.GetCategory().GetName())
+	}
 }
